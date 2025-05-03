@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js Interactive Scene</title>
+    <style>
+        /* Basic reset and canvas styling */
+        body {
+            margin: 0;
+            overflow: hidden; /* Prevent scrollbars on the body */
+            font-family: sans-serif; /* Basic font */
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+        }
+        canvas {
+            display: block; /* Remove potential space below canvas */
+        }
+
+        /* Loading Overlay */
+        #loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); /* Dark semi-transparent overlay */
+            display: flex; /* Use flexbox for centering */
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Stack elements vertically */
+            z-index: 100; /* Ensure it's on top */
+            transition: opacity 0.5s ease-out; /* Smooth fade out */
+        }
+        #loading-progress {
+            color: #eee;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+         /* Hide initially */
+        #loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none; /* Allow interaction with canvas below */
+        }
+
+        /* Audio Unlock Button */
+        #audio-unlock-button {
+            padding: 12px 25px;
+            font-size: 1.1em;
+            color: #000;
+            background-color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            display: none; /* Hidden until loading is complete */
+        }
+        #audio-unlock-button:hover {
+            background-color: #ccc;
+        }
+         /* Hide after click */
+        #audio-unlock-button.hidden {
+            display: none;
+        }
+
+
+        /* Info Panel Styling */
+        #info-panel {
+            display: none; /* Start hidden */
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: black;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            pointer-events: none; /* Important */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            max-width: 200px;
+            z-index: 10; /* Below loading overlay initially */
+        }
+    </style>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <div id="loading-overlay">
+        <div id="loading-progress">Loading... 0%</div>
+        <button id="audio-unlock-button">E N T E R</button>
+    </div>
+
+    <canvas id="c"></canvas>
+
+    <div id="info-panel">
+        Placeholder Text
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

@@ -205,7 +205,7 @@ const videoFileMap = {
     },
     'lunaMoth_webm': {
         safari: 'assets/Luna_Moth_H.265.mov',
-        default: 'assets/Luna_Moth.webm'
+        default: 'assets/lunaMoth_webm.webm'
     },
     'tigerButterfly_webm': {
         safari: 'assets/tigerButterfly_H.265.mov', // Make sure this path is correct
